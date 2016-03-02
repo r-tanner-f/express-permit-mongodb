@@ -1,0 +1,47 @@
+[
+  {
+    "username": "rsopUser",
+    "permissions": {
+      "block-test": { "block-me": true },
+      "group-test": { "some-perm": true }
+    },
+    "groups": ["rsop-me"]
+  },
+  {
+    "username": "someUser",
+    "permissions": {
+      "root": { "delete-me": true, "block-me": true },
+      "suite": { "delete-me": true, "block-me": true }
+    },
+    "groups": [
+      "remove-me"
+    ]
+  },
+  {
+    "username": "staticUser",
+    "permissions": {
+      "root": { "nochanges": true }
+    },
+    "groups": []
+  },
+  {
+    "username": "updatableUser",
+    "permissions": {},
+    "groups": []
+  },
+  {
+    "username": "deletableUser",
+    "permissions": {},
+    "groups": []
+  },
+  {
+    "username": "nonAdmin",
+    "permissions": {},
+    "groups": []
+  },
+  {
+    "username": "nonOwner",
+    "permissions": {},
+    "groups": []
+  }
+]

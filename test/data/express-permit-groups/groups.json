@@ -1,0 +1,37 @@
+[
+  {
+    "name": "join-me",
+    "permissions": {}
+  },
+  {
+    "name": "remove-me",
+    "permissions": {}
+  },
+  {
+    "name": "update-me",
+    "permissions": {}
+  },
+  {
+    "username": "read-me",
+    "permissions": { "root": { "foo": "bar" } }
+  },
+  {
+    "name": "rsop-me",
+    "permissions": {
+      "block-test": {
+        "block-me": false
+      },
+      "group-test": {
+        "add-me": true
+      }
+    }
+  },
+  {
+    "name": "delete-me",
+    "permissions": {}
+  },
+  {
+    "username": "op-me",
+    "permissions": { "root": { "remove-me": true } }
+  }
+]
