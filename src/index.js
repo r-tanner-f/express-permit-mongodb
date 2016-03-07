@@ -163,7 +163,7 @@ module.exports = function (expressPermit) {
             { name: { $in: user.groups } },
             { _id: false }
           ).toArray((err, result) => {
-            user.groups = result.map(group => group.permissions);
+            user.groupPermissions = result.map(group => group.permissions);
             callback(null, user);
           });
         }
