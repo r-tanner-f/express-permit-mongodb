@@ -316,6 +316,27 @@ module.exports = function (expressPermit) {
       );
     }
 
+    updateGroups(username, groups, callback) {
+      this.db.collection(this.collectionName).
+      update(
+        { username: username },
+        { $set: { groups: groups } },
+        (err, result) => {
+          if (err) {
+            return callback(err);
+          }
+
+          if (result.result.n === 0) {
+            return callback(
+              new this.error.NotFound(`User ${username} not found`)
+            );
+          }
+
+          callback(null, result);
+        }
+      );
+    }
+
     // Groups ==================================================================
     createGroup(group, permissions, callback) {
       this.db.collection(this.groupsCollectionName).

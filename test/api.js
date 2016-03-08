@@ -254,6 +254,20 @@ describe('API', function () {
     });
   });
 
+  it('should update a user\'s groups', function (done) {
+    agent
+    .put('/updateGroups/someUser')
+    .send({groups: ['updated-all']})
+    .expect(200)
+    .end((err) => {
+      expect(err, 'Problem updating user\'s groups').to.not.exist();
+      read('someUser', (err, result) => {
+        expect(result.groups).to.deep.equal(['updated-all']);
+        done();
+      });
+    });
+  });
+
   it('should read a single group', function (done) {
     agent
     .get('/group/read-me')
