@@ -177,7 +177,7 @@ module.exports = function (expressPermit) {
           return callback(err);
         }
 
-        if (result.result.nModified === 0) {
+        if (result.result.n === 0) {
           return callback(
             new this.error.NotFound(`User ${username} not found`)
           );
