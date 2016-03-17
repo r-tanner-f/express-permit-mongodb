@@ -155,6 +155,8 @@ module.exports = function (expressPermit) {
       this.read(username, (err, user) => {
         if (err) {return callback(err);}
 
+        user.groupPermissions = [];
+
         if (user.groups.length) {
 
           // Find all the groups
@@ -163,9 +165,13 @@ module.exports = function (expressPermit) {
             { name: { $in: user.groups } },
             { _id: false }
           ).toArray((err, result) => {
+            if (err) { return callback(err); }
+
             user.groupPermissions = result.map(group => group.permissions);
             callback(null, user);
           });
+        } else {
+          callback(null, user);
         }
       });
     }
