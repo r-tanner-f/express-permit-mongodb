@@ -193,6 +193,26 @@ module.exports = function (expressPermit) {
       });
     }
 
+    updatePermissions(username, permissions, callback) {
+      this.db.collection(this.collectionName).
+      update(
+        { username: username },
+        { $set: {permissions: permissions}},
+        (err, result) => {
+          if (err) {
+            return callback(err);
+          }
+
+          if (result.result.n === 0) {
+            return callback(
+              new this.error.NotFound(`User ${username} not found`)
+            );
+          }
+
+          callback(null, result);
+        }
+      );
+    }
     destroy(username, callback) {
       this.db.collection(this.collectionName).
       deleteOne({ username: username }, (err, result) => {
