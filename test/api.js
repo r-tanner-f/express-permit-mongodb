@@ -367,7 +367,6 @@ describe('API', function () {
   it('should throw a NotFound when user/group is not found',
     function (done) {
 
-      this.timeout(5000);
       var user = {
         permissions: {},
         groups: [],

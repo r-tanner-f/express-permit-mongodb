@@ -1,6 +1,6 @@
 {
-  "name": "express-permit-mongodb",
-  "version": "1.0.0",
+  "name": "@orchardcorset/express-permit-mongodb",
+  "version": "1.0.1",
   "description": "MongoDB store for express-permit",
   "main": "index.js",
   "scripts": {
